@@ -21,6 +21,7 @@
 | UINT7        | 0xxx xxxx   | unsigned integer 0 to 127 |
 | USER6        | 10xx xxxx   | User-defined types (0-63: 6 bits) |
 | NIL          | 1100 0000   |              |
+| ANY          | 1100 0001   | Any type can follow  |
 | FALSE        | 1100 0010   |              |
 | TRUE         | 1100 0011   |              |
 | INT8         | 1100 0100   |              |
@@ -50,4 +51,5 @@
 | MAP32        | 1101 1010   |              |
 | DECIMAL64    | 1101 1011   | up-to 18 precision digits |
 | DECIMAL128   | 1101 1100   | up-to 38 precision digits |
+| RESERVED     | 1101 11xx   | unused       |
 | NINT4        | 111x xxxx   | Negative int -1 to -32 | 
