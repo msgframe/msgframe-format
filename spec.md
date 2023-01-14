@@ -14,46 +14,40 @@
 - __ARRAY__: Fixed-length array
 - __MAP__: Fixed-length key-value pairs
 
-## Format
+## Type Prefix Code
 
 | Type         | Prefix      | Description  |
 | ------------ | ----------- | ------------ |
-| STR5         | 100x xxxx   | UTF-8 strings up to 32-bytes (5-bits) |
-| ARRAY4       | 1010 xxxx   | Array up to size 16 (4 bits)          |
-| MAP4         | 1011 xxxx   | Array up to size 16 (4 bits)          |
+| UINT7        | 0xxx xxxx   | unsigned integer 0 to 127 |
+| USER6        | 10xx xxxx   | User-defined types (0-63: 6 bits) |
 | NIL          | 1100 0000   |              |
-
-
-| FALSE        | 0000 0010   |              |
-| TRUE         | 0000 0011   |              |
-| INT8         | 0000 0100   |              |
-| INT16        | 0000 0101   |              |
-| INT32        | 0000 0110   |              |
-| INT64        | 0000 0111   |              |
-| BIT1         | 0000 1000   |              |
-| BIT2         | 0000 1001   |              |
-| BIT3         | 0000 1010   |              |
-| BIT4         | 0000 1011   |              |
-| BIT5         | 0000 1100   |              |
-| BIT6         | 0000 1101   |              |
-| BIT7         | 0000 1110   |              |
-| UNDEFINED    | 0000 1111   |              |
-| FLOAT32      | 0001 0000   |              |
-| FLOAT64      | 0001 0001   |              |
-| DECIMAL32    | 0001 0010   |              |
-| DECIMAL64    | 0001 0011   |              |
-| DECIMAL(P,S) | 0001 0100   | precision, scale     |
-| STR8         | 0001 0101   | UTF-8 string up to 8-bit length |
-| STR16        | 0001 0110   |              |
-| STR32        | 0001 0111   |              |
-| BIN8         | 0001 1000   |              |
-| BIN16        | 0001 1001   |              |
-| BIN32        | 0001 1010   |              |
-| TIMESTAMP32  | 0001 1011   |              |
-| TIMESTAMP64  | 0001 1100   |              |
-| TIMESTAMP96  | 0001 1101   |              |
-| ARRAY16      | 0001 1110   |              |
-| ARRAY32      | 0001 1111   |              |
-| ARRAY32      | 0001 1101   |              |
-  MAP16        | 0001 1101   |              |
-  MAP32        | 0001 1101   |              |
+| FALSE        | 1100 0010   |              |
+| TRUE         | 1100 0011   |              |
+| INT8         | 1100 0100   |              |
+| INT16        | 1100 0101   |              |
+| INT32        | 1100 0110   |              |
+| INT64        | 1100 0111   |              |
+| BIT3         | 1100 1xxx   | bit value 1-7 bits |
+| UINT8        | 1100 1111   | BIT8         |
+| UINT16       | 1100 1000   |              |
+| UINT32       | 1100 1001   |              |
+| FLOAT32      | 1100 1010   |              |
+| FLOAT64      | 1100 1011   |              |
+| STR8         | 1100 1100   |              |
+| STR16        | 1100 1101   |              |
+| STR32        | 1100 1110   |              | 
+| BIN8         | 1100 1111   |              |
+| BIN16        | 1101 0000   |              |
+| BIN32        | 1101 0001   |              |
+| TIMESTAMP32  | 1101 0010   |              |
+| TIMESTAMP64  | 1101 0011   |              |
+| TIMESTAMP96  | 1101 0100   |              |
+| ARRY8        | 1101 0101   |              |
+| ARRY16       | 1101 0110   |              |
+| ARRAY32      | 1101 0111   |              |
+| MAP8         | 1101 1000   |              |
+| MAP16        | 1101 1001   |              |
+| MAP32        | 1101 1010   |              |
+| DECIMAL64    | 1101 1011   | up-to 18 precision digits |
+| DECIMAL128   | 1101 1100   | up-to 38 precision digits |
+| NINT4        | 111x xxxx   | Negative int -1 to -32 | 
